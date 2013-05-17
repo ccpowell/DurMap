@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DurMap.Site", "DurMap.Site\DurMap.Site.csproj", "{B19C4B89-506E-427D-8EC4-831C58424A9F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DurMap.Tests", "DurMap.Tests\DurMap.Tests.csproj", "{04626621-E11C-4A82-A4FA-A320C50D599C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B19C4B89-506E-427D-8EC4-831C58424A9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B19C4B89-506E-427D-8EC4-831C58424A9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B19C4B89-506E-427D-8EC4-831C58424A9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B19C4B89-506E-427D-8EC4-831C58424A9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04626621-E11C-4A82-A4FA-A320C50D599C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04626621-E11C-4A82-A4FA-A320C50D599C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04626621-E11C-4A82-A4FA-A320C50D599C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04626621-E11C-4A82-A4FA-A320C50D599C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
