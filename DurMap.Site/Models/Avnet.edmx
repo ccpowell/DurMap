@@ -1,0 +1,238 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="StatesModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="StatesModelStoreContainer">
+          <EntitySet Name="States" EntityType="StatesModel.Store.States" store:Type="Tables" store:Schema="dbo" store:Name="States">
+            <DefiningQuery>SELECT 
+      [States].[Id] AS [Id], 
+      [States].[Name] AS [Name], 
+      [States].[Code] AS [Code], 
+      [States].[FipsCode] AS [FipsCode], 
+      [States].[Zoom] AS [Zoom]
+      FROM [dbo].[States] AS [States]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="USAstate" EntityType="StatesModel.Store.USAstate" store:Type="Tables" store:Schema="dbo" store:Name="USAstate">
+            <DefiningQuery>SELECT 
+      [USAstate].[ID] AS [ID], 
+      [USAstate].[OBJECTID] AS [OBJECTID], 
+      [USAstate].[VertexCou] AS [VertexCou], 
+      [USAstate].[ISO] AS [ISO], 
+      [USAstate].[NAME_0] AS [NAME_0], 
+      [USAstate].[NAME] AS [NAME], 
+      [USAstate].[VARNAME_1] AS [VARNAME_1], 
+      [USAstate].[NL_NAME_1] AS [NL_NAME_1], 
+      [USAstate].[HASC_1] AS [HASC_1], 
+      [USAstate].[TYPE_1] AS [TYPE_1], 
+      [USAstate].[ENGTYPE_1] AS [ENGTYPE_1], 
+      [USAstate].[VALIDFR_1] AS [VALIDFR_1], 
+      [USAstate].[VALIDTO_1] AS [VALIDTO_1], 
+      [USAstate].[REMARKS_1] AS [REMARKS_1], 
+      [USAstate].[Region] AS [Region], 
+      [USAstate].[RegionVar] AS [RegionVar], 
+      [USAstate].[ProvNumber] AS [ProvNumber], 
+      [USAstate].[NEV_Countr] AS [NEV_Countr], 
+      [USAstate].[FIRST_FIPS] AS [FIRST_FIPS], 
+      [USAstate].[FIRST_HASC] AS [FIRST_HASC], 
+      [USAstate].[FIPS_1] AS [FIPS_1], 
+      [USAstate].[gadm_level] AS [gadm_level], 
+      [USAstate].[CheckMe] AS [CheckMe], 
+      [USAstate].[Region_Cod] AS [Region_Cod], 
+      [USAstate].[Region_C_1] AS [Region_C_1], 
+      [USAstate].[ScaleRank] AS [ScaleRank], 
+      [USAstate].[Region_C_2] AS [Region_C_2], 
+      [USAstate].[Region_C_3] AS [Region_C_3], 
+      [USAstate].[Country_Pr] AS [Country_Pr], 
+      [USAstate].[Shape_Leng] AS [Shape_Leng], 
+      [USAstate].[AREA] AS [AREA]
+      FROM [dbo].[USAstate] AS [USAstate]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'States.dbo.States' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      warning 6005: The data type 'geography' is not supported; the column 'Geography' in table 'States.dbo.States' was excluded.
+      warning 6005: The data type 'geometry' is not supported; the column 'Geometry' in table 'States.dbo.States' was excluded.
+      warning 6005: The data type 'geography' is not supported; the column 'Center' in table 'States.dbo.States' was excluded.
+      -->
+        <EntityType Name="States">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Code" Type="nchar" MaxLength="2" />
+          <Property Name="FipsCode" Type="nchar" MaxLength="10" />
+          <Property Name="Zoom" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'States.dbo.USAstate' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      warning 6005: The data type 'geography' is not supported; the column 'the_geo' in table 'States.dbo.USAstate' was excluded.
+      warning 6005: The data type 'geometry' is not supported; the column 'the_geom' in table 'States.dbo.USAstate' was excluded.
+      -->
+        <EntityType Name="USAstate">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="OBJECTID" Type="bigint" />
+          <Property Name="VertexCou" Type="real" />
+          <Property Name="ISO" Type="nvarchar" MaxLength="255" />
+          <Property Name="NAME_0" Type="nvarchar" MaxLength="255" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="255" />
+          <Property Name="VARNAME_1" Type="nvarchar" MaxLength="255" />
+          <Property Name="NL_NAME_1" Type="nvarchar" MaxLength="255" />
+          <Property Name="HASC_1" Type="nvarchar" MaxLength="255" />
+          <Property Name="TYPE_1" Type="nvarchar" MaxLength="255" />
+          <Property Name="ENGTYPE_1" Type="nvarchar" MaxLength="255" />
+          <Property Name="VALIDFR_1" Type="nvarchar" MaxLength="255" />
+          <Property Name="VALIDTO_1" Type="nvarchar" MaxLength="255" />
+          <Property Name="REMARKS_1" Type="nvarchar" MaxLength="255" />
+          <Property Name="Region" Type="nvarchar" MaxLength="255" />
+          <Property Name="RegionVar" Type="nvarchar" MaxLength="255" />
+          <Property Name="ProvNumber" Type="int" />
+          <Property Name="NEV_Countr" Type="nvarchar" MaxLength="255" />
+          <Property Name="FIRST_FIPS" Type="nvarchar" MaxLength="255" />
+          <Property Name="FIRST_HASC" Type="nvarchar" MaxLength="255" />
+          <Property Name="FIPS_1" Type="nvarchar" MaxLength="255" />
+          <Property Name="gadm_level" Type="real" />
+          <Property Name="CheckMe" Type="int" />
+          <Property Name="Region_Cod" Type="nvarchar" MaxLength="255" />
+          <Property Name="Region_C_1" Type="nvarchar" MaxLength="255" />
+          <Property Name="ScaleRank" Type="int" />
+          <Property Name="Region_C_2" Type="nvarchar" MaxLength="255" />
+          <Property Name="Region_C_3" Type="nvarchar" MaxLength="255" />
+          <Property Name="Country_Pr" Type="nvarchar" MaxLength="255" />
+          <Property Name="Shape_Leng" Type="real" />
+          <Property Name="AREA" Type="real" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="StatesModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="StatesEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="States" EntityType="StatesModel.State" />
+          <EntitySet Name="USAstates" EntityType="StatesModel.USAstate" />
+        </EntityContainer>
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Code" Type="String" MaxLength="2" Unicode="true" FixedLength="true" />
+          <Property Name="FipsCode" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="Zoom" Type="Int32" />
+        </EntityType>
+        <EntityType Name="USAstate">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OBJECTID" Type="Int64" />
+          <Property Name="VertexCou" Type="Single" />
+          <Property Name="ISO" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="NAME_0" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="NAME" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="VARNAME_1" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="NL_NAME_1" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="HASC_1" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="TYPE_1" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="ENGTYPE_1" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="VALIDFR_1" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="VALIDTO_1" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="REMARKS_1" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Region" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="RegionVar" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="ProvNumber" Type="Int32" />
+          <Property Name="NEV_Countr" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="FIRST_FIPS" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="FIRST_HASC" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="FIPS_1" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="gadm_level" Type="Single" />
+          <Property Name="CheckMe" Type="Int32" />
+          <Property Name="Region_Cod" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Region_C_1" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="ScaleRank" Type="Int32" />
+          <Property Name="Region_C_2" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Region_C_3" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Country_Pr" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Shape_Leng" Type="Single" />
+          <Property Name="AREA" Type="Single" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="StatesModelStoreContainer" CdmEntityContainer="StatesEntities">
+          <EntitySetMapping Name="States"><EntityTypeMapping TypeName="StatesModel.State"><MappingFragment StoreEntitySet="States">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="Code" ColumnName="Code" />
+            <ScalarProperty Name="FipsCode" ColumnName="FipsCode" />
+            <ScalarProperty Name="Zoom" ColumnName="Zoom" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="USAstates"><EntityTypeMapping TypeName="StatesModel.USAstate"><MappingFragment StoreEntitySet="USAstate">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+            <ScalarProperty Name="VertexCou" ColumnName="VertexCou" />
+            <ScalarProperty Name="ISO" ColumnName="ISO" />
+            <ScalarProperty Name="NAME_0" ColumnName="NAME_0" />
+            <ScalarProperty Name="NAME" ColumnName="NAME" />
+            <ScalarProperty Name="VARNAME_1" ColumnName="VARNAME_1" />
+            <ScalarProperty Name="NL_NAME_1" ColumnName="NL_NAME_1" />
+            <ScalarProperty Name="HASC_1" ColumnName="HASC_1" />
+            <ScalarProperty Name="TYPE_1" ColumnName="TYPE_1" />
+            <ScalarProperty Name="ENGTYPE_1" ColumnName="ENGTYPE_1" />
+            <ScalarProperty Name="VALIDFR_1" ColumnName="VALIDFR_1" />
+            <ScalarProperty Name="VALIDTO_1" ColumnName="VALIDTO_1" />
+            <ScalarProperty Name="REMARKS_1" ColumnName="REMARKS_1" />
+            <ScalarProperty Name="Region" ColumnName="Region" />
+            <ScalarProperty Name="RegionVar" ColumnName="RegionVar" />
+            <ScalarProperty Name="ProvNumber" ColumnName="ProvNumber" />
+            <ScalarProperty Name="NEV_Countr" ColumnName="NEV_Countr" />
+            <ScalarProperty Name="FIRST_FIPS" ColumnName="FIRST_FIPS" />
+            <ScalarProperty Name="FIRST_HASC" ColumnName="FIRST_HASC" />
+            <ScalarProperty Name="FIPS_1" ColumnName="FIPS_1" />
+            <ScalarProperty Name="gadm_level" ColumnName="gadm_level" />
+            <ScalarProperty Name="CheckMe" ColumnName="CheckMe" />
+            <ScalarProperty Name="Region_Cod" ColumnName="Region_Cod" />
+            <ScalarProperty Name="Region_C_1" ColumnName="Region_C_1" />
+            <ScalarProperty Name="ScaleRank" ColumnName="ScaleRank" />
+            <ScalarProperty Name="Region_C_2" ColumnName="Region_C_2" />
+            <ScalarProperty Name="Region_C_3" ColumnName="Region_C_3" />
+            <ScalarProperty Name="Country_Pr" ColumnName="Country_Pr" />
+            <ScalarProperty Name="Shape_Leng" ColumnName="Shape_Leng" />
+            <ScalarProperty Name="AREA" ColumnName="AREA" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Avnet">
+        <EntityTypeShape EntityType="StatesModel.State" Width="1.5" PointX="0.75" PointY="0.75" Height="1.9802864583333331" IsExpanded="true" />
+        <EntityTypeShape EntityType="StatesModel.USAstate" Width="1.5" PointX="2.75" PointY="0.75" Height="6.9801236979166656" IsExpanded="true" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

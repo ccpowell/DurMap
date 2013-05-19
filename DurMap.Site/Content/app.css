@@ -1,9 +1,11 @@
-﻿.splash {
+﻿.splash
+{
     text-align: center;
     margin: 10% 0 0 0;
 }
 
-.splash .message {
+.splash .message
+{
     font-size: 5em;
     line-height: 1.5em;
     -webkit-text-shadow: rgba(0, 0, 0, 0.5) 0px 0px 15px;
@@ -11,42 +13,58 @@
     text-transform: uppercase;
 }
 
-.splash .icon-spinner {
+.splash .icon-spinner
+{
     text-align: center;
     display: inline-block;
     font-size: 5em;
     margin-top: 50px;
 }
 
-.page-host {
+.page-host
+{
     position: relative;
     top: 40px;
 }
 
-.navbar-fixed-top .navbar-inner {
+.navbar-fixed-top .navbar-inner
+{
     padding-left: 1em;
     padding-right: 1em;
 }
 
-.navbar-fixed-top .icon-home {
-    font-size: 18px
+.navbar-fixed-top .icon-home
+{
+    font-size: 18px;
 }
 
-.loader {
+.loader
+{
     margin: 6px 8px 4px 8px;
     visibility: hidden;
 }
 
-.loader.active {
+.loader.active
+{
     visibility: visible;
 }
 
-@media (max-width: 979px) {
-    .page-host {
+div.map-container
+{
+    position: relative;
+    width: 700px;
+    height: 500px;
+}
+
+@media (max-width: 979px)
+{
+    .page-host
+    {
         top: 0;
     }
 
-    .navbar-fixed-top {
+    .navbar-fixed-top
+    {
         margin-bottom: 0;
     }
 }

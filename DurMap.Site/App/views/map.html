@@ -1,6 +1,27 @@
-﻿<section>
-    <h2>Map
-    </h2>
-    <div id='mapDiv' style="position: relative; width: 700px; height: 500px;">
+﻿<div class="container" style="padding: 25px;">
+    <div class="row">
+        <div class="span2">
+            <h2>
+                Map
+            </h2>
+        </div>
     </div>
-</section>
+    <div class="row">
+        <div class="span3">
+            <button type="button" class="btn" data-bind="click: getReport">Get Report</button>
+            <h4>
+                Report Type</h4>
+            <div data-bind="text: reportType">
+            </div>
+            <div data-bind="compose: 'viewmodels/reportType', cacheViews: true" style="height: 300px;
+                overflow-y: auto;">
+            </div>
+            <h4>
+                Report By Person</h4>
+        </div>
+        <div class="span9">
+            <div class="map-container">
+            </div>
+        </div>
+    </div>
+</div>
