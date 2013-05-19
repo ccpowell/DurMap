@@ -1,0 +1,10 @@
+﻿<div data-bind="foreach: regions">
+    <div data-bind="text: name">
+    </div>
+    <div data-bind="foreach: persons">
+        <label class="radio">
+            <input type="radio" name="report-person" data-bind="checked: $parents[1].personSelected, attr: {value: $data}" />
+            <span data-bind="text: $data"></span>
+        </label>
+    </div>
+</div>

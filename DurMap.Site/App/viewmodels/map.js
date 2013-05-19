@@ -4,7 +4,7 @@
 /*jslint browser: true, debug: true, devel: true, white: true, plusplus: true, maxerr: 100, unparam: true, indent: 4 */
 /*global $: false, define: false, ko: false, Microsoft: false */
 
-define(['durandal/app', 'durandal/system', 'viewmodels/reportType'], function (app, system, rt) {
+define(['durandal/app', 'durandal/system', 'viewmodels/reportType', 'viewmodels/persons'], function (app, system, reportType, persons) {
     "use strict";
     var self = {
         map: null,
@@ -42,9 +42,14 @@ define(['durandal/app', 'durandal/system', 'viewmodels/reportType'], function (a
     function getReport(x, y) {
         system.log("get report " + rt.reportType());
     }
-
-    return $.extend(self, {
+    
+    // we keep access to the viewmodels for the reportType and region list.
+    $.extend(self, {
         getReport: getReport,
-        viewAttached: viewAttached
+        viewAttached: viewAttached,
+        reportType: reportType,
+        persons: persons
     });
+
+    return self;
 });

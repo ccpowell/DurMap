@@ -8,16 +8,22 @@
     </div>
     <div class="row">
         <div class="span3">
-            <button type="button" class="btn" data-bind="click: getReport">Get Report</button>
+            <button type="button" class="btn" data-bind="click: getReport">
+                Get Report</button>
             <h4>
                 Report Type</h4>
-            <div data-bind="text: reportType">
+            <div data-bind="text: reportType.reportType">
             </div>
-            <div data-bind="compose: 'viewmodels/reportType', cacheViews: true" style="height: 300px;
+            <div data-bind="compose: {model: reportType, view: 'views/reportType'}" style="height: 300px;
                 overflow-y: auto;">
             </div>
             <h4>
                 Report By Person</h4>
+            <div data-bind="text:persons.personSelected">
+            </div>
+            <div data-bind="compose: {model: persons, view: 'views/persons'}" style="height: 300px;
+                overflow-y: auto;">
+            </div>
         </div>
         <div class="span9">
             <div class="map-container">
