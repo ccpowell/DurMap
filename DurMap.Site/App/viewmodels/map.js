@@ -7,8 +7,7 @@
 define(['durandal/app', 'durandal/system', 'viewmodels/reportType', 'viewmodels/persons'], function (app, system, reportType, persons) {
     "use strict";
     var self = {
-        map: null,
-        reportType: ko.observable("nothing selected")
+        map: null
     };
 
     function viewAttached(view) {
@@ -40,7 +39,7 @@ define(['durandal/app', 'durandal/system', 'viewmodels/reportType', 'viewmodels/
     }
 
     function getReport(x, y) {
-        system.log("get report " + rt.reportType());
+        system.log("get report " + self.reportType.reportType()  + ", person = " + self.persons.personSelected());
     }
     
     // we keep access to the viewmodels for the reportType and region list.
