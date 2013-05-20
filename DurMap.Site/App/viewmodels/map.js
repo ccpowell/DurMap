@@ -14,6 +14,9 @@ define(['durandal/app', 'durandal/system', 'viewmodels/reportType', 'viewmodels/
         reportMinDate: new Date("12/25/2011")
     };
 
+    function reportDateChanged(slider) {
+        system.log("report date changed");
+    }
 
     function viewAttached(view) {
         var div = $(view).find('div.map-container').get(0),
@@ -47,7 +50,8 @@ define(['durandal/app', 'durandal/system', 'viewmodels/reportType', 'viewmodels/
         getReport: getReport,
         viewAttached: viewAttached,
         reportType: reportType,
-        persons: persons
+        persons: persons,
+        reportDateChanged: reportDateChanged
     });
 
     return self;

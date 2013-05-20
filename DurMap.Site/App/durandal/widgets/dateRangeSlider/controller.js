@@ -25,6 +25,7 @@ define(['durandal/widget', 'durandal/system'],
             var maxDate;
             this.minDate = new Date(settings.minDate.toString());
             this.days = settings.days || 100;
+            this.slideStop = settings.slideStop || function () { }; 
 
             maxDate = copyDate(this.minDate);
             addDays(maxDate, this.days);
@@ -56,10 +57,7 @@ define(['durandal/widget', 'durandal/system'],
             addDays(date, value);
             return date;
         }
-
-        ctor.prototype.sliderStop = function (e) {
-        };
-
+        
         ctor.prototype.slide = function (e) {
             // check e.value against this.value to see which value(s) changed
             if (e.value[0] !== this.value[0]) {
@@ -82,7 +80,7 @@ define(['durandal/widget', 'durandal/system'],
                 tooltip: 'hide',
                 value: this.value
             })
-            .on('slideStop', $.proxy(this.sliderStop, this))
+            .on('slideStop', $.proxy(this.slideStop, this))
             .on('slide', $.proxy(this.slide, this));
         };
 

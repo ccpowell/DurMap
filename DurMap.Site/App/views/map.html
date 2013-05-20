@@ -30,7 +30,10 @@
                 End: <span data-bind="text: reportEnd().toDateString()" />
                 </div>
             </div>
-            <!-- ko widget: {kind: 'dateRangeSlider', minDate: reportMinDate, days: reportDays, beginDate: reportBegin, endDate: reportEnd} -->
+            <!-- ko widget: {
+                kind: 'dateRangeSlider', minDate: reportMinDate, days: reportDays, 
+                beginDate: reportBegin, endDate: reportEnd, slideStop: reportDateChanged
+                } -->
             <!-- /ko -->
         </div>
     </div>
