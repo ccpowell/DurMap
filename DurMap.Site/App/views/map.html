@@ -22,8 +22,16 @@
             <div class="map-container">
             </div>
             <br />
-            <div id="slider" style="width: 700px;">
+            <div class="row">
+                <div class="span3">
+                Begin: <span data-bind="text: reportBegin().toDateString()" />
+                </div>
+                <div class="span3">
+                End: <span data-bind="text: reportEnd().toDateString()" />
+                </div>
             </div>
+            <!-- ko widget: {kind: 'dateRangeSlider', minDate: reportMinDate, days: reportDays, beginDate: reportBegin, endDate: reportEnd} -->
+            <!-- /ko -->
         </div>
     </div>
     <div class="row">

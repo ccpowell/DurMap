@@ -56,6 +56,11 @@ div.map-container
     height: 700px;
 }
 
+div.report-date-slider
+{
+    width: 700px;
+}
+
 @media (max-width: 979px)
 {
     .page-host

@@ -7,18 +7,18 @@
 define(['durandal/app', 'durandal/system', 'viewmodels/reportType', 'viewmodels/persons'], function (app, system, reportType, persons) {
     "use strict";
     var self = {
-        map: null
+        map: null,
+        reportBegin: ko.observable(new Date("2/1/2012")),
+        reportEnd: ko.observable(new Date("3/1/2012")),
+        reportDays: 365,
+        reportMinDate: new Date("12/25/2011")
     };
 
+
     function viewAttached(view) {
-        var div = $(view).find('div.map-container').get(0);
+        var div = $(view).find('div.map-container').get(0),
+            slider = $(view).find('div.report-date-slider');
         system.log("map attaching");
-        if (self.map === undefined) {
-            system.log("map is not defined");
-        }
-        if (self.map === null) {
-            system.log("map is null");
-        }
         if (self.map) {
             system.log("map is made!");
         } else {
@@ -36,14 +36,12 @@ define(['durandal/app', 'durandal/system', 'viewmodels/reportType', 'viewmodels/
                 zoom: 4
             });
         }
-
-        $('#slider').slider();
     }
 
     function getReport(x, y) {
-        system.log("get report " + self.reportType.reportType()  + ", person = " + self.persons.personSelected());
+        system.log("get report " + self.reportType.reportType() + ", person = " + self.persons.personSelected());
     }
-    
+
     // we keep access to the viewmodels for the reportType and region list.
     $.extend(self, {
         getReport: getReport,

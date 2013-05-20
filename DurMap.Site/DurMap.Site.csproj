@@ -153,6 +153,8 @@
     <Content Include="App\durandal\viewModel.js" />
     <Content Include="App\durandal\viewModelBinder.js" />
     <Content Include="App\durandal\widget.js" />
+    <Content Include="App\durandal\widgets\dateRangeSlider\controller.js" />
+    <Content Include="App\durandal\widgets\dateRangeSlider\view.html" />
     <Content Include="App\main-built.js" />
     <Content Include="App\main.js" />
     <Content Include="App\viewmodels\persons.js" />
