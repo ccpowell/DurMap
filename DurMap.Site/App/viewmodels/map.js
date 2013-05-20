@@ -31,11 +31,13 @@ define(['durandal/app', 'durandal/system', 'viewmodels/reportType', 'viewmodels/
                 //AjtUzWJBHlI3Ma_Ke6Qv2fGRXEs0ua5hUQi54ECwfXTiWsitll4AkETZDihjcfeI ISDK
                 //AqFS5IR76tuVDO7gUl9YncTj1GHOkrJC00Ol_qz1qJNG31f4Ie9Utw8TZEF0mEIX
                 //AjVI0TPKHqwalgzvnmlL3S3IC_UiHnxKcpRCNUtRNXbZenP1a-3uwADNDVJkwN3i
-                credentials: "AjtUzWJBHlI3Ma_Ke6Qv2fGRXEs0ua5hUQi54ECwfXTiWsitll4AkETZDihjcfeI",
+                credentials: "Ar4tBcd2Q3r9Lc4KWjZQj-cI9Hrf9CcVf3gNZ-eX-3iHB8dQPIRXgsLaGOcVIJtS",
                 center: new Microsoft.Maps.Location(40, -95),
                 zoom: 4
             });
         }
+
+        $('#slider').slider();
     }
 
     function getReport(x, y) {

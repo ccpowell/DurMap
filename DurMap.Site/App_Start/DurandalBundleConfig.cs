@@ -13,6 +13,7 @@ namespace DurMap.Site {
           .Include("~/Scripts/knockout-{version}.js")
           .Include("~/Scripts/sammy-{version}.js")
           .Include("~/Scripts/bootstrap.min.js")
+          .Include("~/Scripts/bootstrap-slider.js")
         );
 
       bundles.Add(
@@ -21,8 +22,9 @@ namespace DurMap.Site {
           .Include("~/Content/bootstrap.min.css")
           .Include("~/Content/bootstrap-responsive.min.css")
           .Include("~/Content/font-awesome.min.css")
-		  .Include("~/Content/durandal.css")
+          .Include("~/Content/durandal.css")
           .Include("~/Content/app.css")
+          .Include("~/Content/slider.css")
         );
     }
 

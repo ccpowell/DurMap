@@ -17,6 +17,8 @@ define(['durandal/system'], function (system) {
         system.log("regions loaded");
     }
 
-    self.viewAttached = initializePersons;
+    // TODO: this should work
+    //self.viewAttached = initializePersons;
+    initializePersons();
     return self;
 });
