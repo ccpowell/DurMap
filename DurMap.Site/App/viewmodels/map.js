@@ -14,13 +14,13 @@ define(['durandal/app', 'durandal/system', 'viewmodels/reportType', 'viewmodels/
         reportMinDate: new Date("12/25/2011")
     };
 
-    function reportDateChanged(slider) {
+    function reportDateChanged(ev) {
         system.log("report date changed");
     }
 
+    // create map when DOM becomes visible
     function viewAttached(view) {
-        var div = $(view).find('div.map-container').get(0),
-            slider = $(view).find('div.report-date-slider');
+        var div = $(view).find('div.map-container').get(0);
         system.log("map attaching");
         if (self.map) {
             system.log("map is made!");
@@ -45,13 +45,17 @@ define(['durandal/app', 'durandal/system', 'viewmodels/reportType', 'viewmodels/
         system.log("get report " + self.reportType.reportType() + ", person = " + self.persons.personSelected());
     }
 
+    function kluge() {
+    }
+
     // we keep access to the viewmodels for the reportType and region list.
     $.extend(self, {
         getReport: getReport,
         viewAttached: viewAttached,
         reportType: reportType,
         persons: persons,
-        reportDateChanged: reportDateChanged
+        reportDateChanged: reportDateChanged,
+        kluge: kluge
     });
 
     return self;

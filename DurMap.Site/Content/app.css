@@ -61,6 +61,22 @@ div.report-date-slider
     width: 700px;
 }
 
+#applicationHost .slider-track
+{
+    background-color: #ddd;
+    color: #f00;
+    filter: none;
+}
+
+#applicationHost .slider-selection
+{
+    background-color: #6d6;
+    color: #f00;
+    filter: none;
+}
+
+
+
 @media (max-width: 979px)
 {
     .page-host

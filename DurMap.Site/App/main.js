@@ -23,7 +23,7 @@ define(['durandal/app', 'durandal/viewLocator', 'durandal/system', 'durandal/plu
             //router.mapNav('flickr');
             //router.mapNav('map');
 
-            app.adaptToDevice();
+            //app.adaptToDevice();
 
             //Show the app by setting the root view model for our application with a transition.
             app.setRoot('viewmodels/map', 'entrance');

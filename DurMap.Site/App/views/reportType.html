@@ -1,6 +1,10 @@
-﻿<div data-bind="foreach: reports">
-    <label class="radio">
-        <input type="radio" name="report-type" data-bind="checked: $parent.reportType, attr: {value: name}" />
-        <span data-bind="text: name"></span>
-    </label>
+﻿<div data-bind="foreach: categories">
+    <div data-bind="text: name">
+    </div>
+    <div data-bind="foreach: reports">
+        <label class="radio">
+            <input type="radio" name="report-type" data-bind="checked: $parents[1].reportType, attr: {value: name}" />
+            <span data-bind="text: name"></span>
+        </label>
+    </div>
 </div>

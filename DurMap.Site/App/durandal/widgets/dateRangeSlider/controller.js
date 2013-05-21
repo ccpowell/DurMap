@@ -78,9 +78,10 @@ define(['durandal/widget', 'durandal/system'],
                 max: this.days,
                 //formater: $.proxy(this.formatSliderDate, this),
                 tooltip: 'hide',
+                handle: 'round',
                 value: this.value
             })
-            .on('slideStop', $.proxy(this.slideStop, this))
+            .on('slideStop', this.slideStop)
             .on('slide', $.proxy(this.slide, this));
         };
 
