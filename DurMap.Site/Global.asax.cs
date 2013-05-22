@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
+using System.Web.Optimization;
 
 namespace DurMap.Site
 {
@@ -12,12 +13,18 @@ namespace DurMap.Site
     // visit http://go.microsoft.com/?LinkId=9394801
     public class MvcApplication : System.Web.HttpApplication
     {
+        private static NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
+        
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
 
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            DurandalBundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            Bootstrapper.Initialise();
+            Logger.Debug("Starting");
         }
     }
 }

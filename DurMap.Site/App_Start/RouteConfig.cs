@@ -20,6 +20,11 @@ namespace DurMap.Site
                 defaults: new { id = RouteParameter.Optional }
             );
 
+            routes.MapHttpRoute(
+                name: "Operations",
+                routeTemplate: "operations/{controller}/{action}"
+            );
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

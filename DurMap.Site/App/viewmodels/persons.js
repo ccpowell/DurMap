@@ -15,15 +15,14 @@ define(['durandal/system'], function (system) {
         self.regions.removeAll();
         self.regions.push({ name: "East Coast", persons: ["Harry", "Sally"] });
         self.regions.push({ name: "West Coast", persons: ["Joe", "John", "Alice", "Ho"] });
-        self.personSelected("");
-        system.log("regions loaded");
+        self.personSelected("...");
         return self;
     }
 
     // calling initializePersons in the thread seems to bollix up knockout
     // if using the network, this won't matter
     self.viewAttached = function (view) {
-        window.setTimeout(initializePersons, 1);
+        window.setTimeout(initializePersons, 100);
     };
     return self;
 });
