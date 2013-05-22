@@ -63,14 +63,14 @@ div.report-date-slider
 
 #applicationHost .slider-track
 {
-    background-color: #ddd;
     color: #f00;
     filter: none;
+    background:  #ddd;
 }
 
 #applicationHost .slider-selection
 {
-    background-color: #6d6;
+    background: #6d6;
     color: #f00;
     filter: none;
 }
