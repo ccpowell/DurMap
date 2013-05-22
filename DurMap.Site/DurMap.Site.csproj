@@ -144,6 +144,7 @@
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Controllers\DurandalController.cs" />
     <Compile Include="Controllers\Operations\MiscController.cs" />
+    <Compile Include="Data\GeoJsonConvert.cs" />
     <Compile Include="Data\MapHelpers.cs" />
     <Compile Include="Data\Repository.cs" />
     <Compile Include="Global.asax.cs">

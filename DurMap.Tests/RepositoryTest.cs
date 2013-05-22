@@ -74,9 +74,16 @@ namespace DurMap.Tests
         public void GetStatesTest()
         {
             Repository target = new Repository(); // TODO: Initialize to an appropriate value
-            BoundingBox bbox = null; // TODO: Initialize to an appropriate value
+            BoundingBox bbox = new BoundingBox()
+            {
+                North = 60,
+                South = 20,
+                East = -80,
+                West = -120
+            };
             FeatureCollection actual;
-            actual = target.GetStates(bbox);
+            actual = target.GetStates(bbox, 4);
+            Assert.IsTrue(actual.features.Length > 0);
         }
     }
 }
