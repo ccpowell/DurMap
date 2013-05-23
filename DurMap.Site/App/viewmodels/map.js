@@ -7,13 +7,24 @@
 define(['durandal/app', 'durandal/system', 'durandal/http', 'viewmodels/reportType', 'viewmodels/persons'],
     function (app, system, http, reportType, persons) {
         "use strict";
-        var self = {
-            map: null,
-            reportBegin: ko.observable(new Date("2/1/2012")),
-            reportEnd: ko.observable(new Date("3/1/2012")),
-            reportDays: 365,
-            reportMinDate: new Date("12/25/2011")
-        };
+        var mm = Microsoft.Maps,
+
+        // Bing map
+            map = null,
+
+        // state borders on the map
+            ecStates = new mm.EntityCollection({ zIndex: 2 }),
+
+        // state border data in geoJSON
+            dataStates = null,
+
+        // viewmodel
+            self = {
+                reportBegin: ko.observable(new Date("2/1/2012")),
+                reportEnd: ko.observable(new Date("3/1/2012")),
+                reportDays: 365,
+                reportMinDate: new Date("12/25/2011")
+            };
 
         function reportDateChanged(ev) {
             system.log("report date changed");
@@ -23,18 +34,19 @@ define(['durandal/app', 'durandal/system', 'durandal/http', 'viewmodels/reportTy
         function viewAttached(view) {
             var div = $(view).find('div.map-container').get(0);
             system.log("map attaching");
-            if (self.map) {
+            if (map) {
                 system.log("map is made!");
             } else {
                 system.log("creating map");
                 if (!div) {
                     system.log("ERROR! could not find mapDiv");
                 }
-                self.map = new Microsoft.Maps.Map(div, {
+                map = new Microsoft.Maps.Map(div, {
                     credentials: "Ar4tBcd2Q3r9Lc4KWjZQj-cI9Hrf9CcVf3gNZ-eX-3iHB8dQPIRXgsLaGOcVIJtS",
                     center: new Microsoft.Maps.Location(40, -95),
                     zoom: 4
                 });
+                map.entities.push(ecStates);
             }
         }
 
@@ -45,8 +57,8 @@ define(['durandal/app', 'durandal/system', 'durandal/http', 'viewmodels/reportTy
 
         function getCurrentMapView() {
             var view = {
-                zoom: self.map.getZoom(),
-                bounds: self.map.getBounds()
+                zoom: map.getZoom(),
+                bounds: map.getBounds()
             };
             return view;
         }
@@ -58,10 +70,51 @@ define(['durandal/app', 'durandal/system', 'durandal/http', 'viewmodels/reportTy
             return http.post('/operations/misc/GetStates', view);
         }
 
+        function renderStates() {
+            var scale;
+            ecStates.clear();
+
+            if (!dataStates) {
+                return;
+            }
+
+            // draw each state
+            $.each(dataStates.features, function (index, feature) {
+                polygonStyle = {
+                    fillColor: new mm.Color(128, 100, 100, 100),
+                    strokeColor: new mm.Color(200, 0, 0, 0),
+                    strokeThickness: 2
+                };
+
+                function createPrimitive(index, poly) {
+                    // draw only the first (exterior) polygon
+                    var locations = [], polygon;
+                    $.each(poly[0], function (cindex, coord) {
+                        var location = new mm.Location(coord[1], coord[0]);
+                        locations.push(location);
+                    });
+
+                    polygon = new mm.Polygon(locations, polygonStyle);
+                    polygon.properties = feature.properties;
+
+                    //mm.Events.addHandler(polygon, "mouseover", countyMouseover);
+                    //mm.Events.addHandler(polygon, "mouseout", countyMouseout);
+                    //mm.Events.addHandler(polygon, "click", countyMouseClick);
+
+                    ecStates.push(polygon);
+                }
+
+                // draw each polygon in a county (e.g. islands)
+                $.each(feature.geometry.coordinates, createPrimitive);
+            });
+        }
+
         function kluge() {
             getStatesInMap()
                 .then(function (data) {
                     system.log("got states");
+                    dataStates = data;
+                    renderStates();
                 });
         }
 
